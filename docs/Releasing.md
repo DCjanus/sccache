@@ -1,6 +1,8 @@
 # Sccache Release Process
 
-Most of the sccache release process is automated. The [github workflow](https://github.com/mozilla/sccache/actions?query=workflow%3Aci) contains builds for all supported platforms, as well as a release job that is triggered by pushing a new tag to the repository. That job will upload the resulting binary packages to [the GitHub releases page](https://github.com/mozilla/sccache/releases) on the repository.
+Most of the sccache release process is automated. The [github workflow](https://github.com/mozilla/sccache/actions?query=workflow%3Aci) contains builds for all supported platforms, as well as a release job that is triggered by pushing a new tag to the repository. That job will upload the resulting binary packages to [the GitHub releases page](https://github.com/mozilla/sccache/releases) on the repository and publish Linux container images to [GitHub Container registry](https://ghcr.io).
+
+The container image is published as `ghcr.io/mozilla/sccache` for `linux/amd64` and `linux/arm64`. The first package publication may require a repository owner to make the package public and confirm that it inherits access from this repository.
 
 # Producing a release
 

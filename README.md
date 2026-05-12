@@ -93,6 +93,21 @@ Or, using [cargo-binstall](https://github.com/cargo-bins/cargo-binstall) to inst
 cargo binstall sccache
 ```
 
+### Container image
+
+Linux container images are published to the GitHub Container registry:
+
+```bash
+docker pull ghcr.io/mozilla/sccache:latest
+```
+
+The image can also be used as a source for multi-stage builds:
+
+```Dockerfile
+COPY --from=ghcr.io/mozilla/sccache:latest /usr/local/bin/sccache /usr/local/bin/sccache
+ENV RUSTC_WRAPPER=/usr/local/bin/sccache
+```
+
 ### With Nix
 
 Sccache is available in nixpkgs, so if you don't need the latest version you can use that:
